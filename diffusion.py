@@ -207,16 +207,16 @@ class GaussianDiffusion(nn.Module):
         alphas_bar_t = self._extract(coef = self.alphas_bar, t = t, x_shape = x_t.shape)
         alphas_bar_prev = self._extract(coef = self.alphas_bar_prev, t = prevt + 1, x_shape = x_t.shape)
 
-        eps_pos = pred_eps_cond - pred_eps_uncond
+        eps_pos = pred_eps_cond - pred_eps_uncond # positive eps, classifier-free guidance
 
+        # Universal Guidance
         tmp_eps_pred = pred_eps_uncond + w1* eps_pos
-        x_0_hat = (x_t - torch.sqrt(1 - alphas_bar_t) * tmp_eps_pred) / torch.sqrt(alphas_bar_t) # Universal Guidance
+        x_0_hat = (x_t - torch.sqrt(1 - alphas_bar_t) * tmp_eps_pred) / torch.sqrt(alphas_bar_t) # predicted clean data
         
-        gradient = self.cond_fn(x_0_hat, priv_classifier, priv_y, emb, scale=1) # For universal guidance
-        
-        eps_neg = - 1 * torch.sqrt(1 - alphas_bar_t) * gradient
+        gradient = self.cond_fn(x_0_hat, priv_classifier, priv_y, emb, scale=1) # compute gradients using \hat{x_0} from universal guidance
+        eps_neg = - 1 * torch.sqrt(1 - alphas_bar_t) * gradient # negative eps, classifier guidance
 
-        pred_eps = pred_eps_uncond + w1* eps_pos - w2 * eps_neg
+        pred_eps = pred_eps_uncond + w1* eps_pos - w2 * eps_neg # compose positive eps and negative eps
 
         assert torch.isnan(pred_eps).int().sum() == 0, f"nan in tensor pred_eps when t = {t[0]}"
         
@@ -228,7 +228,6 @@ class GaussianDiffusion(nn.Module):
         
         p_mean = torch.sqrt(alphas_bar_prev) * (x_t - torch.sqrt(1 - alphas_bar_t) * pred_eps) / torch.sqrt(alphas_bar_t) + \
             coef_eps * pred_eps
-
         return p_mean, p_var
     
     def ddim_p_sample(self, x_t:torch.Tensor, t:torch.Tensor, prevt:torch.Tensor, eta:float, priv_classifier, priv_y, emb, w1, w2, **model_kwargs) -> torch.Tensor: 
