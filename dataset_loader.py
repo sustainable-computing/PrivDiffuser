@@ -316,7 +316,7 @@ class DataSampler(object):
 
 
 def load_motionsense():
-    path = "../xx/xx/MotionSense Dataset/"
+    path = "./datasets/motionsense/"
     DS = DataSampler(path)
     user_groups = {}  # Generate User groups: dictionary
     user_groups_test = {}
@@ -351,7 +351,7 @@ def load_motionsense():
 
 
 def load_mobiact(args):
-    mobi_path="../xx/Dataset&Models/MobiAct Dataset/Data/"
+    mobi_path="./datasets/mobiact/"
     data_subjects = pd.read_csv(mobi_path + "data_subjects.csv")
     data = np.load(mobi_path + "total_data.npy", allow_pickle=True)
     activity = np.load(mobi_path + "activity_labels.npy", allow_pickle=True)
@@ -458,7 +458,7 @@ def load_mobiact(args):
 
 
 def load_wifi(args):
-    wifi_path = '../xx/data/wifiHAR/'
+    wifi_path = './datasets/wifihar/'
     all_user_data_dict = pkl.load(open(wifi_path+'sit_user_data_4_80.pkl','rb'))
     all_user_act_labels_dict = pkl.load(open(wifi_path+'sit_user_act_labels_4_80.pkl','rb'))
     all_user_weight_labels_dict = pkl.load(open(wifi_path+'sit_user_weight_labels_4_80.pkl','rb'))
