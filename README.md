@@ -11,16 +11,32 @@ PrivDiffuser is evaluated on three Human Activity Recognition (HAR) datasets: Mo
 
 The datasets and the preprocessing script (required for MobiAct) are available at:
 
-- MobiAct V2.0: [Dataset](https://bmi.hmu.gr/the-mobifall-and-mobiact-datasets-2)
-    - Preprocessing script: [dataset_builder.py](https://github.com/sustainable-computing/ObscureNet/blob/master/Dataset%26Models/MobiAct%20Dataset/dataset_builder.py)
+- MobiAct V2.0: [Dataset](https://bmi.hmu.gr/the-mobifall-and-mobiact-datasets-2), Preprocessing script: [dataset_builder.py](https://github.com/sustainable-computing/ObscureNet/blob/master/Dataset%26Models/MobiAct%20Dataset/dataset_builder.py)
 
 - MotionSense: [Dataset](https://github.com/mmalekzadeh/motion-sense/tree/master/data)
 
 - WiFi-HAR: [Dataset](https://data.mendeley.com/datasets/v38wjmz6f6/1)
 
+Due to the file size limit, we compressed the datasets, pre-trained models, and evaluation models into a zip file (DatasetsAndModels.zip) and uploaded to Google Drive: [https://drive.google.com/file/d/1168ZSbA4CjzZ8YLkGr-wE-u-gBVfV9jN/view?usp=sharing](https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing)
 
-[dataset_loader.py](https://github.com/sustainable-computing/PrivDiffuser/blob/main/dataset_loader.py): contains the code to load preprocessed dataset, change the path to your local dataset before running the notebook.
+After downloading the zip file, unzip to get 3 folders: `eval_models`, `datasets`, and `models`, move them under the root directory of this repo. 
+The notebook should load the corresponding models and datasets correctly by default.
 
+## Setup
+We provided `requirements.txt` for dependencies installed via pip. In addition, we provided `environment.yml` for conda environments. 
+
+Note: the `environment.yml` is generated for building our Docker image, hence it does NOT install GPU-related packages. You may need to install GPU-enabled PyTorch and TensorFlow if you want to use GPU acceleration.
+
+### Docker
+We provided a pre-built Docker image that contains our code, datasets, pre-trained models, and all required dependencies to run the code (without GPU acceleration). The Docker image is pre-configured with a `base` conda environment and will automatically launch Jupyter Lab on port `8889`.
+
+You can pull our Docker image from the Docker Hub: `docker pull neilyxin/privdiffuser`.
+
+Run the Docker image: `docker run -it --rm -p 8889:8889 neilyxin/privdiffuser`. 
+
+You can find the link to the Jupyter Lab with authentication token in the terminal: `http://127.0.0.1:8889/lab?token=replace_with_your_token`. You can paste this into your browser to open Jupyter Lab. The code base, datasets, and models are located under the default work directory. Open `PrivDiffuser.ipynb` to run the code.
+
+Note: This Docker image is built for and tested on Ubuntu (20.04). Using this image on other OS or architecture, such as macOS with Apple silicon chips, may require additional setup. 
 
 ## How to Use
 The Jupyter notebook contains the code for obfuscating the gender attribute using the MobiAct dataset.
@@ -35,11 +51,6 @@ Below we list the private attribute(s) supported in each dataset:
 | MotionSense     | gender                      |
 | WiFi-HAR        | weight                      |
 
-Due to the file size limit, we compressed the datasets, pre-trained models, and evaluation models into a zip file (DatasetsAndModels.zip) and uploaded to an anonymous Google Drive: https://drive.google.com/file/d/1168ZSbA4CjzZ8YLkGr-wE-u-gBVfV9jN/view?usp=sharing
-
-After downloading the zip file, unzip to get 3 folders named `eval_models`, `datasets`, and `models`. Then move them to the root directly and run the Jupyter Notebook. 
-The default path in the notebook should point to the corresponding models and datasets correctly.
-
 `PrivDiffuser.ipynb`: jupyter notebook for running the PrivDiffuser code base.
 
 `eval_models`: contains pre-trained evaluation models.
@@ -48,29 +59,14 @@ The default path in the notebook should point to the corresponding models and da
 
 `datasets`: contains pre-processed datasets for MobiAct, MotionSense, and WiFi-HAR.
 
-`dataset_loader.py`: contains the code to load the pre-processed datasets.
+`dataset_loader.py`: contains the code to load the pre-processed datasets. You may need to change the path to your local dataset here.
 
-## Setup
-We provided `requirements.txt` for dependencies installed via pip. In addition, we provided `environment.yml` for conda environments. 
-
-Note: the `environment.yml` is generated for building our Docker image, hence it will NOT install GPU-related packages. This is for reference only if you would like to enable GPU acceleration.
-
-## Docker
-We provided a pre-built Docker image that includes our code, datasets, pre-trained models, and all required dependencies to run the code (without GPU acceleration). The Docker image is pre-configured with a `base` conda environment and will automatically launch Jupyter Lab on port `8889`.
-
-You can pull our Docker image from the Docker Hub: `docker pull neilyxin/privdiffuser`.
-
-Run the Docker image: `docker run -it --rm -p 8889:8889 neilyxin/privdiffuser`. 
-
-The link for the Jupyter Lab should appear in the terminal in this format: `http://127.0.0.1:8889/lab?token=replace_with_your_token`. You can paste this link into your browser to open Jupyter Lab. The code base, datasets, and models are located under the default work directory. Open `PrivDiffuser.ipynb` to run the code.
-
-Note: This Docker image is built for and tested on Ubuntu 20.04. Using this image on other OS, such as macOS with Apple silicon chips, may require additional setup. 
-
-## How to Use
 
 ### Reproduce results on MobiAct
 The default configuration in `PrivDiffuser.ipynb` will load the pre-trained models under the `models` folder to perform gender obfuscation on the MobiAct dataset. It will generate obfuscated data and evaluate data utility and privacy.
-Running the default notebook will generate results for PrivDiffuser in Table 1 and Figure 4 (a). Change `self.private = 'gender'` into `self.private = 'weight'` in the `Args` class, then re-run the notebook to obtain weight obfuscation results on MobiAct, as presented in Table 1 and Figure 4 (b).
+Running the default notebook will generate results for PrivDiffuser in Table 1 and Figure 4 (a). 
+
+Change `self.private = 'gender'` into `self.private = 'weight'` in the `Args` class, then re-run the notebook to obtain weight obfuscation results on MobiAct, as presented in Table 1 and Figure 4 (b).
 
 ### Reproduce results on MotionSense
 To reproduce the results on the MotionSense dataset using pre-trained models, as presented in Table 2 and Figure 5, set `self.dataset='motion'` and `self.private='gender'` in the `Args` class, then re-run the notebook.
@@ -78,7 +74,7 @@ To reproduce the results on the MotionSense dataset using pre-trained models, as
 ### Reproduce results on MotionSense
 To reproduce the results on the Wifi-HAR dataset using pre-trained models, as presented in Table 3 and Figure 6, set `self.dataset='motion'` and `self.private='gender'` in the `Args` class, then re-run the notebook.
 
-Note: the sampling process can be interrupted if at least one batch of data is obfuscated. Running the remaining code after the interruption will generate the data obfuscation results on a portion of the test set. This can help save some time for reviewers, considering the sampling time can be very long on some datasets without GPU acceleration. 
+Note: the sampling process can be interrupted if at least one batch of obfuscated data is generated. Running the remaining code after the interruption will report the data obfuscation performance on this generated portion of the test set.
 
 ## Dependencies
 | Package           | Version       |
