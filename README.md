@@ -62,16 +62,16 @@ Below we list the private attribute(s) supported in each dataset:
 `dataset_loader.py`: contains the code to load the pre-processed datasets. You may need to change the path to your local dataset here.
 
 
-### Reproduce results on MobiAct
+### Reproduce Results on MobiAct
 The default configuration in `PrivDiffuser.ipynb` will load the pre-trained models under the `models` folder to perform gender obfuscation on the MobiAct dataset. It will generate obfuscated data and evaluate data utility and privacy.
 Running the default notebook will generate results for PrivDiffuser in Table 1 and Figure 4 (a). 
 
 Change `self.private = 'gender'` into `self.private = 'weight'` in the `Args` class, then re-run the notebook to obtain weight obfuscation results on MobiAct, as presented in Table 1 and Figure 4 (b).
 
-### Reproduce results on MotionSense
+### Reproduce Results on MotionSense
 To reproduce the results on the MotionSense dataset using pre-trained models, as presented in Table 2 and Figure 5, set `self.dataset='motion'` and `self.private='gender'` in the `Args` class, then re-run the notebook.
 
-### Reproduce results on MotionSense
+### Reproduce Results on MotionSense
 To reproduce the results on the Wifi-HAR dataset using pre-trained models, as presented in Table 3 and Figure 6, set `self.dataset='motion'` and `self.private='gender'` in the `Args` class, then re-run the notebook.
 
 Note: the sampling process can be interrupted if at least one batch of obfuscated data is generated. Running the remaining code after the interruption will report the data obfuscation performance on this generated portion of the test set.
