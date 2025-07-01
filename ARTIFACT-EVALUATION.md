@@ -40,7 +40,7 @@ In the following, describe how to access our artifact and all related and necess
 Afterward, describe how to set up everything and how to verify that everything is set up correctly.
 
 ### Accessibility (All badges)
-The source code to our implementation is available on GitHub: https://github.com/sustainable-computing/PrivDiffuser (commit-id e63174d)
+The source code to our implementation is available on GitHub: https://github.com/sustainable-computing/PrivDiffuser
 
 We provide the datasets and pre-trained models via a public Google Drive: https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing
 
