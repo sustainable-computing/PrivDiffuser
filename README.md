@@ -17,7 +17,7 @@ The datasets and the preprocessing script (required for MobiAct) are available a
 
 - WiFi-HAR: [Dataset](https://data.mendeley.com/datasets/v38wjmz6f6/1)
 
-Due to the file size limit, we compressed the datasets, pre-trained models, and evaluation models into a zip file (DatasetsAndModels.zip) and uploaded to Google Drive: [https://drive.google.com/file/d/1168ZSbA4CjzZ8YLkGr-wE-u-gBVfV9jN/view?usp=sharing](https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing)
+Due to the file size limit, we compressed the datasets, pre-trained models, and evaluation models into a zip file (DatasetsAndModels.zip) and uploaded to Google Drive: [https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing](https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing)
 
 After downloading the zip file, unzip to get 3 folders: `eval_models`, `datasets`, and `models`, move them under the root directory of this repo. 
 The notebook should load the corresponding models and datasets correctly by default.
