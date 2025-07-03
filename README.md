@@ -60,7 +60,7 @@ Below we list the private attribute(s) supported in each dataset:
 
 `datasets`: contains pre-processed datasets for MobiAct, MotionSense, and WiFi-HAR.
 
-`dataset_loader.py`: contains the code to load the pre-processed datasets. You may need to change the path to your local dataset here.
+`dataset_loader.py`: contains the code to load the pre-processed datasets. If you placed the datasets in a different directory, you may need to change the path to the datasets here.
 
 
 ### Reproduce Results on MobiAct
