@@ -17,6 +17,7 @@ The datasets and the preprocessing script (required for MobiAct) are available a
 
 - WiFi-HAR: [Dataset](https://data.mendeley.com/datasets/v38wjmz6f6/1)
 
+**If you follow our Docker setup, the datasets and pre-trained models are already included in the Docker image.**
 Due to the file size limit, we compressed the datasets, pre-trained models, and evaluation models into a zip file (DatasetsAndModels.zip) and uploaded to Google Drive: [https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing](https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing)
 
 After downloading the zip file, unzip to get 3 folders: `eval_models`, `datasets`, and `models`, move them under the root directory of this repo. 
@@ -75,6 +76,14 @@ To reproduce the results on the MotionSense dataset using pre-trained models, as
 To reproduce the results on the Wifi-HAR dataset using pre-trained models, as presented in Table 3 and Figure 6, set `self.dataset='motion'` and `self.private='gender'` in the `Args` class, then re-run the notebook.
 
 Note: the sampling process can be interrupted if at least one batch of obfuscated data is generated. Running the remaining code after the interruption will report the data obfuscation performance on this generated portion of the test set.
+
+### Reproduce Results for Diffusion baseline and Diffusion with Negation baseline
+- Diffusion baseline: set `w2=0` and re-run the sampling to disable negative conditioning.
+- Diffusion with Negation baseline: set `w3=0` (w2 should be consistent as used in PrivDiffuser), change `train_priv = False` to `train_priv = True`, re-run this cell to train the auxiliary privacy model, and then re-run the remaining cells for sampling. This disables MI-based regularization while still using the negative conditioning.
+
+
+
+
 
 ## Dependencies
 | Package           | Version       |
