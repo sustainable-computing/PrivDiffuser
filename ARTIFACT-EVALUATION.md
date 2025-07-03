@@ -25,7 +25,8 @@ We recommend using a computer with x86-64 architecture. ARM architecture, such a
 ### Software Requirements
 We recommend using Ubuntu 20.04 and Python 3.8 to evaluate our artifact. We provide all datasets and pre-trained models on Google Drive (https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing), as described in the README. 
 
-For the ease of evaluation, we recommend using an x86-64 machine to install our Docker image (this does not support GPU acceleration). Note that our Docker image already contains all datasets and pre-trained models.
+For the ease of evaluation, we recommend using an x86-64 machine to install our Docker image (this does not support GPU acceleration). 
+**Note that our Docker image already contains all datasets and pre-trained models.**
 
 ### Estimated Time and Storage Consumption
 The datasets and pre-trained models require at least 10 GB of storage. The storage consumption for using our Docker image is ~35 GB. 
