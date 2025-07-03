@@ -45,7 +45,7 @@ The source code to our implementation is available on GitHub: https://github.com
 
 We provide the datasets and pre-trained models via a public Google Drive: https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing
 
-We also provide a pre-built Docker image on Docker Hub with all datasets and models included, which can be obtained by running: `docker pull neilyxin/privdiffuser`
+We also provide a pre-built Docker image on Docker Hub **with all datasets and models already included**, which can be obtained by running: `docker pull neilyxin/privdiffuser`
 
 ### Set up the environment (Only for Functional and Reproduced badges)
 
