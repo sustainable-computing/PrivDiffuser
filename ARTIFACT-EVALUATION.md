@@ -92,20 +92,20 @@ The reviewers can then run all cells. The data sampling should start without err
 #### Main Result 1: Data Obfuscation on MobiAct Dataset
 The result on the MobiAct dataset is presented in Section 6.1, Table 1, and Figure 4.
 
-When gender is the private attribute, data obfuscated by PrivDiffuser yields an average activity recognition accuracy of 97.40% (Table 1) and an average intrusive gender classification accuracy of 51.43% (Figure 4 (a)). 
+When gender is the private attribute, data obfuscated by PrivDiffuser yields an average **Overall** activity recognition accuracy of 97.40% (Table 1) and an average **Overall** intrusive gender classification accuracy of 51.43% (Figure 4 (a)). 
 
-When weight is the private attribute, data obfuscated by PrivDiffuser yields an average activity recognition accuracy of 97.03% (Table 1) and an average intrusive weight classification accuracy of 36.61% (Figure 4 (b)). 
+When weight is the private attribute, data obfuscated by PrivDiffuser yields an average **Overall** activity recognition accuracy of 97.03% (Table 1) and an average **Overall** intrusive weight classification accuracy of 36.61% (Figure 4 (b)). 
 
 
 #### Main Result 2: Data Obfuscation on MotionSense Dataset
 The result on the MotionSense dataset is presented in Section 6.2, Table 2, and Figure 5.
 
-When gender is the private attribute, data obfuscated by PrivDiffuser yields an average activity recognition accuracy of 96.32% (Table 2) and an average intrusive gender classification accuracy of 49.96% (Figure 5). 
+When gender is the private attribute, data obfuscated by PrivDiffuser yields an average **Overall** activity recognition accuracy of 96.32% (Table 2) and an average **Overall** intrusive gender classification accuracy of 49.96% (Figure 5). 
 
 #### Main Result 3: Data Obfuscation on WiFi-HAR Dataset
 The result on the WiFi-HAR dataset is presented in Section 6.3, Table 3, and Figure 6.
 
-When weight is the private attribute, data obfuscated by PrivDiffuser yields an average activity recognition accuracy of 88.18% (Table 3) and an average intrusive gender classification accuracy of 49.21% (Figure 6). 
+When weight is the private attribute, data obfuscated by PrivDiffuser yields an average **Overall** activity recognition accuracy of 88.18% (Table 3) and an average **Overall** intrusive gender classification accuracy of 49.21% (Figure 6). 
 
 ### Experiments 
 
