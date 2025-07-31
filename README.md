@@ -17,10 +17,10 @@ The datasets and the preprocessing script (required for MobiAct) are available a
 
 - WiFi-HAR: [Dataset](https://data.mendeley.com/datasets/v38wjmz6f6/1)
 
-**If you follow our Docker setup, the datasets and pre-trained models are already included in the Docker image.**
-Due to the file size limit, we compressed the datasets, pre-trained models, and evaluation models into a zip file (DatasetsAndModels.zip) and uploaded to Google Drive: [https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing](https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing)
+We provide the datasets, pre-trained models, and evaluation models using Git LFS. You need to first [install Git LFS](https://github.com/git-lfs/git-lfs?utm_source=gitlfs_site&utm_medium=installation_link&utm_campaign=gitlfs#installing).
 
-After downloading the zip file, unzip to get 3 folders: `eval_models`, `datasets`, and `models`, move them under the root directory of this repo. 
+After Git LFS is installed, you can clone this repo and enter the working directory: `cd PrivDiffuser`, then run `git lfs fetch --all` to download the 3 folders: `eval_models`, `datasets`, and `models`. They should be placed under the root directory of this repo.
+
 The notebook should load the corresponding models and datasets correctly by default.
 
 ## Setup
