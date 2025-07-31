@@ -23,7 +23,10 @@ The estimated time to perform data obfuscation on all 3 datasets will take 1-2 d
 We recommend using a computer with x86-64 architecture. ARM architecture, such as Apple Silicon Macs, might require additional configuration for PyTorch and TensorFlow.
 
 ### Software Requirements
-We recommend using Ubuntu 20.04 and Python 3.8 to evaluate our artifact. We provide all datasets and pre-trained models on Google Drive (https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing), as described in the README. 
+We recommend using Ubuntu 20.04 and Python 3.8 to evaluate our artifact. 
+We provide the datasets, pre-trained models, and evaluation models using Git LFS. You need to first [install Git LFS](https://github.com/git-lfs/git-lfs?utm_source=gitlfs_site&utm_medium=installation_link&utm_campaign=gitlfs#installing).
+
+After Git LFS is installed, you can clone this repo and enter the working directory: `cd PrivDiffuser`, then run `git lfs fetch --all` to download the 3 folders: `eval_models`, `datasets`, and `models`. They should be placed under the root directory of this repo.
 
 For the ease of evaluation, we recommend using an x86-64 machine to install our Docker image (this does not support GPU acceleration). 
 **Note that our Docker image already contains all datasets and pre-trained models.**
@@ -43,7 +46,7 @@ Afterward, describe how to set up everything and how to verify that everything i
 ### Accessibility (All badges)
 The source code to our implementation is available on GitHub: https://github.com/sustainable-computing/PrivDiffuser
 
-We provide the datasets and pre-trained models via a public Google Drive: https://drive.google.com/file/d/1Hwjhe6v0ZfoSshPA7CIXjwzST9CeSkRD/view?usp=sharing
+We provide the datasets and pre-trained models in this repo using Git LFS.
 
 We also provide a pre-built Docker image on Docker Hub **with all datasets and models already included**, which can be obtained by running: `docker pull neilyxin/privdiffuser`
 
