@@ -1,0 +1,5 @@
+datasets/mobiact filter=lfs diff=lfs merge=lfs -text
+datasets/motionsense filter=lfs diff=lfs merge=lfs -text
+datasets/wifihar filter=lfs diff=lfs merge=lfs -text
+eval_models/ filter=lfs diff=lfs merge=lfs -text
+models/ filter=lfs diff=lfs merge=lfs -text
