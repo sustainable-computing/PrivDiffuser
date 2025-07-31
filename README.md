@@ -1,5 +1,5 @@
 # PrivDiffuser
-[![PoPETS](https://img.shields.io/badge/PoPETs-2025-blue?style=flat)]()
+[![PoPETS](https://img.shields.io/badge/PoPETs-2025-blue?style=flat)](https://doi.org/10.56553/popets-2025-0118)
 [![arXiv](https://img.shields.io/badge/arXiv-2209.12046-b31b1b.svg)](https://arxiv.org/abs/2412.14499)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sustainable-computing/PrivDiffuser/blob/main/LICENSE)
 
