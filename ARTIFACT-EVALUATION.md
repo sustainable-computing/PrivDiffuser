@@ -136,5 +136,7 @@ This source code provides the main performance evaluation for PrivDiffuser on 3 
 
 We do not provide the source code for Section 6.4 to 6.7, given that Section 6.4 can be achieved using our code base by adjusting the hyperparameters w1 and w2; Section 6.5 and 6.6 study the scalability of PrivDiffuser and can be implemented on top of the provided source code with minor adjustments; Section 6.7 can also be implemented on top of the provided source code by introducing another MINE module.
 
+We refer to [README.md#how-to-use](README.md#how-to-use) for details on reproducing results for the Diffusion baseline and the Diffusion with Negation baseline.
+
 ## Notes on Reusability (Only for Functional and Reproduced badges)
 The configurations of PrivDiffuser are set in the `Args` and `DiffusionArgs` classes, where users can easily adjust. PrivDiffuser already supports 3 datasets, and the script for loading the datasets is provided in `dataset_loader.py`. Users can refer to this script to support more datasets.
