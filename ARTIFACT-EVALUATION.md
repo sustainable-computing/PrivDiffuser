@@ -24,9 +24,10 @@ We recommend using a computer with x86-64 architecture. ARM architecture, such a
 
 ### Software Requirements
 We recommend using Ubuntu 20.04 and Python 3.8 to evaluate our artifact. 
-We provide the datasets, pre-trained models, and evaluation models using Git LFS. You need to first [install Git LFS](https://github.com/git-lfs/git-lfs?utm_source=gitlfs_site&utm_medium=installation_link&utm_campaign=gitlfs#installing).
 
-After Git LFS is installed, you can clone this repo and enter the working directory: `cd PrivDiffuser`, then run `git lfs fetch --all` to download the 3 folders: `eval_models`, `datasets`, and `models`. They should be placed under the root directory of this repo.
+**We provide the datasets, pre-trained models, and evaluation models using Git LFS. Please first [install Git LFS](https://github.com/git-lfs/git-lfs?utm_source=gitlfs_site&utm_medium=installation_link&utm_campaign=gitlfs#installing).**
+
+After Git LFS is installed, cloning this repo should automatically download the files hosted by Git LFS. To manually download those files after installing Git LFS, enter the working directory of this repo: `cd PrivDiffuser`, then run `git lfs fetch --all` to download the 3 folders: `eval_models`, `datasets`, and `models`. They should be placed under the root directory of this repo.
 
 For the ease of evaluation, we recommend using an x86-64 machine to install our Docker image (this does not support GPU acceleration). 
 **Note that our Docker image already contains all datasets and pre-trained models.**
@@ -64,8 +65,10 @@ Run the Docker image: `docker run -it --rm -p 8889:8889 neilyxin/privdiffuser`.
 
 You can find the link to the Jupyter Lab with authentication token in the terminal: http://127.0.0.1:8889/lab?token=replace_with_your_token. You can paste this into your browser to open Jupyter Lab. The code base, datasets, and models are located under the default work directory. Open PrivDiffuser.ipynb to run the code.
 
-Note: This Docker image is built for and tested on Ubuntu (20.04). Using this image on other OS or architecture, such as macOS with Apple silicon chips, may require additional setup.
+Note: This Docker image is built for and tested on Ubuntu (20.04). Using this image on other OS or architectures, such as macOS with Apple silicon chips, may require additional setup.
 
+#### Build Docker Image: 
+We provide `Dockerfile` and `build_docker.sh` that allow building your own Docker image. First, go to `build_docker.sh`, find this line `DOCKER_IMAGE_NAME="[YOUR_USER_NAME]/privdiffuser"` and replace `[YOUR_USER_NAME]` with your own Docker user ID. Then run this script via: `sh build_docker.sh`. You may need to grant this file executable permission via `sudo chmod +x ./build_docker.sh`.
 
 #### Non-Docker Setup:
 The reviewers can first clone our repo:
@@ -84,7 +87,7 @@ We also provide `environment.yml` used to build our Docker image for reference.
 ### Testing the Environment (Only for Functional and Reproduced badges)
 If the Docker image is successfully configured, running the Docker image should automatically start Jupyter Lab on port 8889. 
 
-Similarly, if the reviewers configured their own environment, the reviewers should be able to open the Jupyter notebook provided in our GitHub repo.
+Similarly, if the reviewers configured their own environment, reviewers should be able to open the Jupyter notebook provided in our GitHub repo.
 
 The reviewers can then run all cells. The data sampling should start without error if the environment is set up correctly.
 
