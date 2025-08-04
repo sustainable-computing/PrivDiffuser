@@ -5,7 +5,7 @@ set -e
 
 # --- 1. Define Variables ---
 # Use these variables to make the script easy to update
-DOCKER_IMAGE_NAME="neilyxin/privdiffuser" # e.g., myuser/myproject
+DOCKER_IMAGE_NAME="[YOUR_USER_NAME]/privdiffuser" # e.g., myuser/myproject
 DOCKER_IMAGE_TAG="latest" # Or a version number like "1.0"
 
 echo "Starting Docker image build process..."
