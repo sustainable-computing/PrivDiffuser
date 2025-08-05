@@ -3,7 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2209.12046-b31b1b.svg)](https://arxiv.org/abs/2412.14499)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sustainable-computing/PrivDiffuser/blob/main/LICENSE)
 
-This repository contains the implementation of the paper entitled "PrivDiffuser: Privacy-Guided Diffusion Model for Data Obfuscation in Sensor Networks.
+This repository contains the implementation of the paper entitled "[PrivDiffuser: Privacy-Guided Diffusion Model for Data Obfuscation in Sensor Networks](https://doi.org/10.56553/popets-2025-0118)", published in Proceedings of the 25th Privacy Enhancing Technologies Symposium (PETS), 2025.
 
 
 ## Datasets
